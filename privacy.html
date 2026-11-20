@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zásady ochrany osobních údajů | SkiLog</title>
+  <meta name="description" content="Jak aplikace SkiLog, web skilog.cz a beta test zacházejí s osobními údaji.">
+  <meta name="theme-color" content="#2168FF">
+  <link rel="canonical" href="https://skilog.cz/privacy.html">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/icon-64.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#obsah">Přeskočit na obsah</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="index.html" aria-label="SkiLog, úvodní stránka">
+        <img src="assets/icon-64.png" alt="" width="34" height="34">
+        <span>SkiLog</span>
+      </a>
+      <a class="btn btn--small nav__cta" href="https://tally.so/r/Yj0lON" data-beta>Chci do bety</a>
+    </div>
+  </header>
+
+  <main id="obsah" class="section">
+    <article class="wrap doc">
+      <h1>Zásady ochrany osobních údajů</h1>
+      <p class="doc__meta">Platné od 20. 11. 2026</p>
+
+      <p class="doc__lead">
+        Tyto zásady popisují, jak s osobními údaji zachází aplikace SkiLog pro Android, web skilog.cz
+        a přihláška do beta testu. Ve zkratce: tvoje jízdy a poloha zůstávají v telefonu. SkiLog nemá
+        vlastní server ani uživatelské účty.
+      </p>
+
+      <h2>Správce osobních údajů</h2>
+      <p>
+        Bc. Jakub Šicner, IČO 29920744, se sídlem sídliště Vajgar 581, 377 01 Jindřichův Hradec<br>
+        E-mail: <a href="mailto:info@skilog.cz">info@skilog.cz</a>
+      </p>
+
+      <h2>Aplikace SkiLog</h2>
+
+      <h3>Poloha a lyžařská data</h3>
+      <p>
+        Během záznamu aplikace zpracovává polohu z GPS, rychlost, nadmořskou výšku a čas, a to i když
+        je telefon zamčený nebo aplikace běží na pozadí. Dále ukládá tvůj profil (jméno nebo přezdívku,
+        uživatelské jméno, zvolený sport, barvu avataru) a nastavení.
+      </p>
+      <ul>
+        <li>Všechno se ukládá jen do databáze v tvém telefonu. Nám ani nikomu jinému se to neodesílá.</li>
+        <li>Jednotlivé dny i profily smažeš přímo v aplikaci. Všechna data smaže odinstalace aplikace nebo vymazání jejích dat v nastavení Androidu.</li>
+        <li>Soubor GPX při exportu vytváříš ty a sám rozhoduješ, komu ho pošleš.</li>
+      </ul>
+
+      <h3>Zálohování Androidu</h3>
+      <p>
+        Pokud máš v telefonu zapnuté zálohování Google, Android může data aplikace, včetně historie
+        jízd, zálohovat do tvého účtu Google. Aplikace to povoluje jen tehdy, když je záloha šifrovaná
+        zámkem obrazovky telefonu. Řídí se to nastavením telefonu a podmínkami Googlu, k záloze
+        nemáme přístup.
+      </p>
+
+      <h3>Mapy a areály</h3>
+      <p>
+        Při zobrazení mapy aplikace stahuje mapové podklady ze serverů OpenTopoMap a OpenSnowMap.
+        Tyto servery, jako každý web, vidí IP adresu telefonu a oblast mapy, kterou si prohlížíš. Když
+        mapa ukazuje tvou aktuální polohu, dá se z ní odvodit, kde přibližně jsi. Při otevření detailu
+        areálu se aplikace ptá služby Overpass API (OpenStreetMap) na názvy sjezdovek a vleků.
+        Záznamy jízd těmto službám neposíláme. Katalog areálů je přímo součástí aplikace.
+      </p>
+
+      <h3>Hlášení pádů (Firebase Crashlytics)</h3>
+      <p>
+        Když aplikace spadne, odešle hlášení do služby Firebase Crashlytics společnosti Google.
+        Hlášení obsahuje technický popis chyby, verzi aplikace, model telefonu, verzi Androidu
+        a náhodný identifikátor instalace. Neobsahuje polohu, lyžařská data ani jméno profilu.
+      </p>
+      <ul>
+        <li>Účel: najít a opravit chyby. Právní základ: oprávněný zájem na spolehlivé aplikaci.</li>
+        <li>Hlášení můžeš kdykoli vypnout v Nastavení aplikace.</li>
+        <li>Google hlášení uchovává 90 dní. Může je zpracovávat i mimo EU, na základě standardních smluvních doložek a rámce EU a USA pro ochranu osobních údajů.</li>
+      </ul>
+
+      <h2>Web skilog.cz</h2>
+      <p>
+        Web nepoužívá cookies ani analytiku. Hostuje ho služba GitHub Pages společnosti GitHub, Inc.,
+        která při návštěvě zaznamenává IP adresu kvůli bezpečnosti a provozu webu
+        (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">zásady GitHubu</a>).
+      </p>
+      <p>
+        Když nám napíšeš na <a href="mailto:info@skilog.cz">info@skilog.cz</a>, použijeme tvou adresu
+        a obsah zprávy jen k odpovědi a uchováme je po dobu nutnou k vyřízení.
+      </p>
+
+      <h2>Beta test</h2>
+      <p>
+        Do beta testu se přihlašuješ formulářem ve službě Tally (Tally BV, Belgie). Formulář se otevře
+        až po kliknutí na „Chci do bety“, do té doby web službě Tally nic neposílá. Zpracováváme v něm tyto údaje:
+      </p>
+      <ul>
+        <li>Údaje: e-mail, model telefonu a verze Androidu, případně tvoje poznámka.</li>
+        <li>Účel: pozvat tě do bety, poslat odkaz na instalaci testovací verze a domluvit se na zpětné vazbě.</li>
+        <li>Právní základ: tvůj souhlas, který můžeš kdykoli odvolat e-mailem na info@skilog.cz.</li>
+        <li>Testovací verze rozesíláme přes Firebase App Distribution nebo Google Play. Tvůj e-mail jim předáme, aby ti mohly poslat pozvánku a odkaz ke stažení.</li>
+        <li>Uchování: do konce beta testu, nejdéle 6 měsíců po vydání aplikace na Google Play. Potom přihlášky smažeme.</li>
+        <li>Zpětnou vazbu a soubory GPX, které nám dobrovolně pošleš, použijeme jen ke zlepšení aplikace a smažeme je spolu s přihláškou. GPX obsahuje trasu dne, posílej jen ty, které sdílet chceš.</li>
+      </ul>
+
+      <h2>Tvoje práva</h2>
+      <p>
+        Máš právo na přístup ke svým údajům, jejich opravu nebo výmaz, omezení zpracování, přenositelnost,
+        právo vznést námitku a odvolat souhlas. Stačí napsat na
+        <a href="mailto:info@skilog.cz">info@skilog.cz</a>, odpovíme nejpozději do měsíce. Data v aplikaci
+        máme mimo dosah, ta spravuješ přímo v telefonu.
+      </p>
+      <p>
+        Pokud si myslíš, že s tvými údaji zacházíme v rozporu s předpisy, můžeš podat stížnost
+        u Úřadu pro ochranu osobních údajů (<a href="https://uoou.gov.cz" rel="noopener">uoou.gov.cz</a>).
+      </p>
+
+      <h2>Změny zásad</h2>
+      <p>
+        Když se způsob zpracování změní, upravíme tyto zásady a datum platnosti. Podstatné změny,
+        například kdyby data začala opouštět telefon kvůli synchronizaci do cloudu, oznámíme předem
+        i v aplikaci.
+      </p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <a class="brand" href="index.html">
+        <img src="assets/icon-64.png" alt="" width="26" height="26">
+        <span>SkiLog</span>
+      </a>
+      <p>Lyžařský deník pro Android. Kontakt: <a href="mailto:info@skilog.cz">info@skilog.cz</a></p>
+      <p class="footer__small">
+        Provozovatel: Bc. Jakub Šicner, IČO 29920744, se sídlem sídliště Vajgar 581, 377 01 Jindřichův Hradec, fyzická osoba zapsaná v živnostenském rejstříku.
+        © 2026 SkiLog
+      </p>
+    </div>
+  </footer>
+  <script src="beta.js" defer></script>
+</body>
+</html>
