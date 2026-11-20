@@ -444,3 +444,13 @@ p { margin: 0 0 1em; }
 .notfound img { margin-bottom: 20px; border-radius: 50%; }
 .notfound h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); letter-spacing: -.04em; }
 .notfound p { color: var(--text-2); margin-bottom: 24px; }
+
+/* Language switch */
+.lang { color: var(--text-2); text-decoration: none; font-weight: 600; font-size: .9rem; padding: 6px 8px; border-radius: 8px; }
+.lang:hover { color: var(--text); background: color-mix(in srgb, var(--border) 40%, transparent); }
+.lang--push { margin-left: auto; }
+.lang--push + .nav__cta { margin-left: 0; }
+@media (max-width: 760px) {
+  .lang { margin-left: auto; }
+  .lang + .btn--small { margin-left: 0; }
+}

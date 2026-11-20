@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://skilog.cz/</loc>
     <lastmod>2026-11-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://skilog.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://skilog.cz/en/"/>
+  </url>
+  <url>
+    <loc>https://skilog.cz/en/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://skilog.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://skilog.cz/en/"/>
   </url>
   <url>
     <loc>https://skilog.cz/privacy.html</loc>
     <lastmod>2026-11-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://skilog.cz/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://skilog.cz/en/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://skilog.cz/en/privacy.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://skilog.cz/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://skilog.cz/en/privacy.html"/>
   </url>
 </urlset>

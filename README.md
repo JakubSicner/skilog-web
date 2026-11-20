@@ -5,11 +5,12 @@ Prezentační web aplikace SkiLog na GitHub Pages s doménou `skilog.cz` (soubor
 
 ```
 index.html     úvodní stránka (CS)
-privacy.html   zásady ochrany osobních údajů (aplikace, web, beta test)
+privacy.html   zásady ochrany osobních údajů (aplikace, web, beta test); závazná verze
+en/            anglická verze obou stránek (přepínač CS/EN v navigaci, hreflang)
 404.html       stránka pro neexistující URL (absolutní cesty, GitHub Pages ji vrací pro libovolnou hloubku)
 styles.css     styly; barvy odpovídají theme aplikace, světlý i tmavý režim
 beta.js        tlačítka „Chci do bety“ otevřou formulář Tally; jeho skript se načte až po kliknutí
-assets/        ikony, písmo Geist, pozadí, snímky obrazovky (WebP, 540 px)
+assets/        ikony, písmo Geist, pozadí, snímky obrazovky (WebP, 540 px); assets/en/ snímky s anglickým UI
 robots.txt, sitemap.xml
 ```
 
@@ -29,4 +30,6 @@ Náhled: `python -m http.server` v kořeni repa (z `file://` se nenačte písmo)
   `https://unpkg.com/@phosphor-icons/core@2.1.1/assets/regular/<název>.svg` jako `<symbol>`.
 - **Privacy policy:** při změně zpracování upravit `privacy.html` i datum „Platné od“
   a stejně tak Data safety v Play Console.
-- **Jazyky:** zatím jen čeština; SK/EN jako `sk/index.html` a `en/index.html` s `hreflang`.
+- **Jazyky:** čeština a angličtina (`en/`). Změnu textu udělat v obou verzích. Tlačítka do bety
+  berou formulář z odkazu (`https://tally.so/r/<id>`), anglická stránka může mít vlastní formulář.
+  Další jazyk (např. SK) jako `sk/` a doplnit `hreflang` na všech stránkách a v `sitemap.xml`.

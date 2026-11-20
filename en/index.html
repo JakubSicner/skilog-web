@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkiLog | Ski tracker for Android</title>
+  <meta name="description" content="SkiLog records your whole ski day with GPS, splits it into runs and lifts on its own and shows speed, vertical and your route on a map. Your data stays on your phone.">
+  <meta name="theme-color" content="#2168FF">
+  <link rel="canonical" href="https://skilog.cz/en/">
+  <link rel="alternate" hreflang="cs" href="https://skilog.cz/">
+  <link rel="alternate" hreflang="en" href="https://skilog.cz/en/">
+  <link rel="alternate" hreflang="x-default" href="https://skilog.cz/en/">
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/icon-64.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://skilog.cz/en/">
+  <meta property="og:title" content="SkiLog | Ski tracker for Android">
+  <meta property="og:description" content="Your whole day on the slopes, run by run: runs, lifts, speed, vertical and your route on a map.">
+  <meta property="og:image" content="https://skilog.cz/assets/icon-512.png">
+  <meta property="og:locale" content="en_GB">
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <!-- Icons: Phosphor Icons (MIT), regular weight, https://phosphoricons.com -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-person-simple-ski" viewBox="0 0 256 256"><path d="M172,88a28,28,0,1,0-28-28A28,28,0,0,0,172,88Zm0-40a12,12,0,1,1-12,12A12,12,0,0,1,172,48ZM32.32,77.76a8,8,0,0,1,9.92-5.44L112,92.67l10.32-10.33a8,8,0,0,1,11.32,0L163.31,112H200a8,8,0,0,1,0,16H160a8,8,0,0,1-5.66-2.34L148.73,120l-111-32.36A8,8,0,0,1,32.32,77.76ZM236.44,204.24a69.78,69.78,0,0,1-58.37,8.95L21.77,167.67a8,8,0,1,1,4.47-15.36l76,22.13L128.73,148,85.8,135.69a8,8,0,0,1,4.4-15.39l56,16a8,8,0,0,1,3.46,13.35l-29.9,29.9,62.79,18.28a53.78,53.78,0,0,0,45-6.9,8,8,0,1,1,8.88,13.31Z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 256 256"><path d="M207.06,72.67A111.24,111.24,0,0,0,128,40h-.4C66.07,40.21,16,91,16,153.13V176a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V152A111.25,111.25,0,0,0,207.06,72.67ZM224,176H119.71l54.76-75.3a8,8,0,0,0-12.94-9.42L99.92,176H32V153.13c0-3.08.15-6.12.43-9.13H56a8,8,0,0,0,0-16H35.27c10.32-38.86,44-68.24,84.73-71.66V80a8,8,0,0,0,16,0V56.33A96.14,96.14,0,0,1,221,128H200a8,8,0,0,0,0,16h23.67c.21,2.65.33,5.31.33,8Z"/></symbol>
+  <symbol id="i-map-trifold" viewBox="0 0 256 256"><path d="M228.92,49.69a8,8,0,0,0-6.86-1.45L160.93,63.52,99.58,32.84a8,8,0,0,0-5.52-.6l-64,16A8,8,0,0,0,24,56V200a8,8,0,0,0,9.94,7.76l61.13-15.28,61.35,30.68A8.15,8.15,0,0,0,160,224a8,8,0,0,0,1.94-.24l64-16A8,8,0,0,0,232,200V56A8,8,0,0,0,228.92,49.69ZM104,52.94l48,24V203.06l-48-24ZM40,62.25l48-12v127.5l-48,12Zm176,131.5-48,12V78.25l48-12Z"/></symbol>
+  <symbol id="i-lock-simple" viewBox="0 0 256 256"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Z"/></symbol>
+  <symbol id="i-battery-charging" viewBox="0 0 256 256"><path d="M200,56H32A24,24,0,0,0,8,80v96a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V80A24,24,0,0,0,200,56Zm8,120a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8Zm48-80v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM138.81,123.79a8,8,0,0,1,.35,7.79l-16,32a8,8,0,0,1-14.32-7.16L119.06,136H100a8,8,0,0,1-7.16-11.58l16-32a8,8,0,1,1,14.32,7.16L112.94,120H132A8,8,0,0,1,138.81,123.79Z"/></symbol>
+  <symbol id="i-wifi-slash" viewBox="0 0 256 256"><path d="M213.92,210.62a8,8,0,1,1-11.84,10.76l-52-57.15a60,60,0,0,0-57.41,7.24,8,8,0,1,1-9.42-12.93A75.43,75.43,0,0,1,128,144c1.28,0,2.55,0,3.82.1L104.9,114.49A108,108,0,0,0,61,135.31,8,8,0,0,1,49.73,134,8,8,0,0,1,51,122.77a124.27,124.27,0,0,1,41.71-21.66L69.37,75.4a155.43,155.43,0,0,0-40.29,24A8,8,0,0,1,18.92,87,171.87,171.87,0,0,1,58,62.86L42.08,45.38A8,8,0,1,1,53.92,34.62ZM128,192a12,12,0,1,0,12,12A12,12,0,0,0,128,192ZM237.08,87A172.3,172.3,0,0,0,106,49.4a8,8,0,1,0,2,15.87A158.33,158.33,0,0,1,128,64a156.25,156.25,0,0,1,98.92,35.37A8,8,0,0,0,237.08,87ZM195,135.31a8,8,0,0,0,11.24-1.3,8,8,0,0,0-1.3-11.24,124.25,124.25,0,0,0-51.73-24.2A8,8,0,1,0,150,114.24,108.12,108.12,0,0,1,195,135.31Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol>
+  <symbol id="i-translate" viewBox="0 0 256 256"><path d="M247.15,212.42l-56-112a8,8,0,0,0-14.31,0l-21.71,43.43A88,88,0,0,1,108,126.93,103.65,103.65,0,0,0,135.69,64H160a8,8,0,0,0,0-16H104V32a8,8,0,0,0-16,0V48H32a8,8,0,0,0,0,16h87.63A87.76,87.76,0,0,1,96,116.35a87.74,87.74,0,0,1-19-31,8,8,0,1,0-15.08,5.34A103.63,103.63,0,0,0,84,127a87.55,87.55,0,0,1-52,17,8,8,0,0,0,0,16,103.46,103.46,0,0,0,64-22.08,104.18,104.18,0,0,0,51.44,21.31l-26.6,53.19a8,8,0,0,0,14.31,7.16L148.94,192h70.11l13.79,27.58A8,8,0,0,0,240,224a8,8,0,0,0,7.15-11.58ZM156.94,176,184,121.89,211.05,176Z"/></symbol>
+  <symbol id="i-chart-bar" viewBox="0 0 256 256"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 256 256"><path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-29,64.64-64,64.9a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"/></symbol>
+  <symbol id="i-cloud-arrow-up" viewBox="0 0 256 256"><path d="M178.34,165.66,160,147.31V208a8,8,0,0,1-16,0V147.31l-18.34,18.35a8,8,0,0,1-11.32-11.32l32-32a8,8,0,0,1,11.32,0l32,32a8,8,0,0,1-11.32,11.32ZM160,40A88.08,88.08,0,0,0,81.29,88.68,64,64,0,1,0,72,216h40a8,8,0,0,0,0-16H72a48,48,0,0,1,0-96c1.1,0,2.2,0,3.29.12A88,88,0,0,0,72,128a8,8,0,0,0,16,0,72,72,0,1,1,100.8,66,8,8,0,0,0,3.2,15.34,7.9,7.9,0,0,0,3.2-.68A88,88,0,0,0,160,40Z"/></symbol>
+  <symbol id="i-share-network" viewBox="0 0 256 256"><path d="M176,160a39.89,39.89,0,0,0-28.62,12.09l-46.1-29.63a39.8,39.8,0,0,0,0-28.92l46.1-29.63a40,40,0,1,0-8.66-13.45l-46.1,29.63a40,40,0,1,0,0,55.82l46.1,29.63A40,40,0,1,0,176,160Zm0-128a24,24,0,1,1-24,24A24,24,0,0,1,176,32ZM64,152a24,24,0,1,1,24-24A24,24,0,0,1,64,152Zm112,72a24,24,0,1,1,24-24A24,24,0,0,1,176,224Z"/></symbol>
+  <symbol id="i-watch" viewBox="0 0 256 256"><path d="M208,128a79.94,79.94,0,0,0-32.7-64.47l-6.24-34.38A16,16,0,0,0,153.32,16H102.68A16,16,0,0,0,86.94,29.15L80.7,63.53a79.9,79.9,0,0,0,0,128.94l6.24,34.38A16,16,0,0,0,102.68,240h50.64a16,16,0,0,0,15.74-13.15l6.24-34.38A79.94,79.94,0,0,0,208,128ZM102.68,32h50.64l3.91,21.55a79.75,79.75,0,0,0-58.46,0ZM64,128a64,64,0,1,1,64,64A64.07,64.07,0,0,1,64,128Zm89.32,96H102.68l-3.91-21.55a79.75,79.75,0,0,0,58.46,0ZM120,128V88a8,8,0,0,1,16,0v32h32a8,8,0,0,1,0,16H128A8,8,0,0,1,120,128Z"/></symbol>
+  <symbol id="i-device-mobile" viewBox="0 0 256 256"><path d="M176,16H80A24,24,0,0,0,56,40V216a24,24,0,0,0,24,24h96a24,24,0,0,0,24-24V40A24,24,0,0,0,176,16ZM72,64H184V192H72Zm8-32h96a8,8,0,0,1,8,8v8H72V40A8,8,0,0,1,80,32Zm96,192H80a8,8,0,0,1-8-8v-8H184v8A8,8,0,0,1,176,224Z"/></symbol>
+  <symbol id="i-signpost" viewBox="0 0 256 256"><path d="M246,106.65,212.33,69.3A16,16,0,0,0,200.44,64H136V32a8,8,0,0,0-16,0V64H40A16,16,0,0,0,24,80v64a16,16,0,0,0,16,16h80v64a8,8,0,0,0,16,0V160h64.44a16,16,0,0,0,11.89-5.3L246,117.35A8,8,0,0,0,246,106.65ZM200.44,144H40V80H200.44l28.8,32Z"/></symbol>
+  <symbol id="i-map-pin-area" viewBox="0 0 256 256"><path d="M112,80a16,16,0,1,1,16,16A16,16,0,0,1,112,80ZM64,80a64,64,0,0,1,128,0c0,59.95-57.58,93.54-60,94.95a8,8,0,0,1-7.94,0C121.58,173.54,64,140,64,80Zm16,0c0,42.2,35.84,70.21,48,78.5,12.15-8.28,48-36.3,48-78.5a48,48,0,0,0-96,0Zm122.77,67.63a8,8,0,0,0-5.54,15C213.74,168.74,224,176.92,224,184c0,13.36-36.52,32-96,32s-96-18.64-96-32c0-7.08,10.26-15.26,26.77-21.36a8,8,0,0,0-5.54-15C29.22,156.49,16,169.41,16,184c0,31.18,57.71,48,112,48s112-16.82,112-48C240,169.41,226.78,156.49,202.77,147.63Z"/></symbol>
+  <symbol id="i-export" viewBox="0 0 256 256"><path d="M216,112v96a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V112A16,16,0,0,1,56,96H80a8,8,0,0,1,0,16H56v96H200V112H176a8,8,0,0,1,0-16h24A16,16,0,0,1,216,112ZM93.66,69.66,120,43.31V136a8,8,0,0,0,16,0V43.31l26.34,26.35a8,8,0,0,0,11.32-11.32l-40-40a8,8,0,0,0-11.32,0l-40,40A8,8,0,0,0,93.66,69.66Z"/></symbol>
+  </svg>
+
+  <a class="skip" href="#obsah">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top" aria-label="SkiLog, back to top">
+        <img src="../assets/icon-64.png" alt="" width="34" height="34">
+        <span>SkiLog</span>
+      </a>
+      <nav class="nav__links" aria-label="Main">
+        <a href="#funkce">Features</a>
+        <a href="#ukazky">Screens</a>
+        <a href="#roadmapa">Roadmap</a>
+      </nav>
+      <a class="lang" href="../" hreflang="cs" lang="cs" title="Česká verze">CS</a>
+      <a class="btn btn--small" href="https://tally.so/r/RWDK49" data-beta>Join the beta</a>
+    </div>
+  </header>
+
+  <main id="obsah">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="pill">In development. Beta in winter 2026/27.</p>
+          <h1>Your whole ski day.<br><span class="accent">Run by run.</span></h1>
+          <p class="lead">Start it at the first lift. In the evening you have every run, every lift, your speed and your route on a map.</p>
+          <div class="hero__cta">
+            <a class="btn" href="https://tally.so/r/RWDK49" data-beta>Join the beta</a>
+            <a class="btn btn--ghost" href="#jak">How it works</a>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="phone phone--back">
+            <img src="../assets/en/screens/detail-dark.webp" alt="Ski day detail in dark mode with the route on a map" width="540" height="1147">
+          </div>
+          <div class="phone phone--front">
+            <img src="../assets/en/screens/home.webp" alt="Home screen with the season overview and the latest ski day" width="540" height="1147" fetchpriority="high">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facts -->
+    <section class="facts" aria-label="At a glance">
+      <ul class="wrap facts__list">
+        <li><svg class="i" aria-hidden="true"><use href="#i-person-simple-ski"/></svg>Ski and snowboard</li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-wifi-slash"/></svg>Records without mobile signal</li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-lock-simple"/></svg>No account, data on your phone</li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-translate"/></svg>English, Czech, Slovak</li>
+      </ul>
+    </section>
+
+    <!-- Features (bento) -->
+    <section class="section" id="funkce">
+      <div class="wrap">
+        <h2 class="section__title">What SkiLog does</h2>
+        <p class="section__lead">No switching between run and lift by hand. The app runs in the background and puts your day together from the numbers.</p>
+
+        <div class="bento">
+          <article class="tile tile--runs reveal">
+            <div class="tile__text">
+              <h3>Tells runs from lifts on its own</h3>
+              <p>Speed and altitude show when you are skiing down and when you are on a lift. Pause for lunch with one tap and mark each run with its piste colour.</p>
+            </div>
+            <img src="../assets/en/runs.webp" alt="Sections of the day: a run, a lift ride and a pause with times and speeds" width="720" height="619" loading="lazy">
+          </article>
+
+          <article class="tile tile--map reveal">
+            <div class="tile__text">
+              <h3>Your route on a ski map</h3>
+              <p>Pistes and lifts from OpenStreetMap. The colour of the line shows where you were fastest.</p>
+            </div>
+            <img src="../assets/map.webp" alt="A ski day route on a piste map, coloured by speed" width="800" height="464" loading="lazy">
+          </article>
+
+          <article class="tile tile--small reveal">
+            <svg class="i i--lg" aria-hidden="true"><use href="#i-gauge"/></svg>
+            <h3>Live speed</h3>
+            <p>Current and top speed, distance and vertical while you ski.</p>
+          </article>
+
+          <article class="tile tile--small reveal">
+            <svg class="i i--lg" aria-hidden="true"><use href="#i-battery-charging"/></svg>
+            <h3>Your day is never lost</h3>
+            <p>Every point is saved as you go. If the cold switches your phone off, you can resume the recording once it is back on.</p>
+          </article>
+
+          <article class="tile tile--season reveal">
+            <div class="tile__text">
+              <h3>Day, week, whole season</h3>
+              <p>How far you skied this season, how long you spent on the slopes and how long on the lifts.</p>
+            </div>
+            <img src="../assets/en/season.webp" alt="Season overview: total distance, ski time and lift time" width="720" height="480" loading="lazy">
+          </article>
+
+          <article class="tile tile--accent reveal">
+            <svg class="i i--lg" aria-hidden="true"><use href="#i-map-trifold"/></svg>
+            <h3>Ski resorts offline</h3>
+            <p>The ski resort catalogue is built into the app. Your favourites are at hand even on a mountain without signal.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section section--tint" id="jak">
+      <div class="wrap how">
+        <div class="how__phone reveal">
+          <div class="phone">
+            <img src="../assets/en/screens/track.webp" alt="Tracking screen with the Start skiing button" width="540" height="1147" loading="lazy">
+          </div>
+        </div>
+        <div class="how__text">
+          <h2 class="section__title">You ski, SkiLog keeps count</h2>
+          <ol class="steps">
+            <li>
+              <h3>Tap Start skiing</h3>
+              <p>In the morning at the first lift. Then lock your phone and put it in your pocket.</p>
+            </li>
+            <li>
+              <h3>Ski the way you like</h3>
+              <p>SkiLog follows your position, speed and altitude in the background and tells runs from lifts by itself.</p>
+            </li>
+            <li>
+              <h3>Look back in the evening</h3>
+              <p>Map, every run, speed and vertical. Rename the day or save it as GPX.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="section" id="ukazky">
+      <div class="wrap tour" data-tour>
+        <div class="tour__text">
+          <h2 class="section__title">What SkiLog looks like</h2>
+          <p class="section__lead">Screens from the development version. The design is still being polished before release.</p>
+
+          <div class="tour__tabs" role="tablist" aria-label="App screens">
+            <button class="tour__tab is-active" role="tab" aria-selected="true" aria-controls="tour-stage" data-index="0">
+              <span class="tour__name">Overview</span>
+              <span class="tour__desc">Day, week and whole season on one screen.</span>
+              <span class="tour__bar" aria-hidden="true"></span>
+            </button>
+            <button class="tour__tab" role="tab" aria-selected="false" aria-controls="tour-stage" data-index="1" tabindex="-1">
+              <span class="tour__name">Tracking</span>
+              <span class="tour__desc">One tap in the morning, SkiLog takes care of the rest.</span>
+              <span class="tour__bar" aria-hidden="true"></span>
+            </button>
+            <button class="tour__tab" role="tab" aria-selected="false" aria-controls="tour-stage" data-index="2" tabindex="-1">
+              <span class="tour__name">History</span>
+              <span class="tour__desc">All your ski days in one list.</span>
+              <span class="tour__bar" aria-hidden="true"></span>
+            </button>
+            <button class="tour__tab" role="tab" aria-selected="false" aria-controls="tour-stage" data-index="3" tabindex="-1">
+              <span class="tour__name">Dark mode</span>
+              <span class="tour__desc">Day detail with the map, easier on the eyes at night.</span>
+              <span class="tour__bar" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="tour__stage">
+          <div class="phone tour__phone" id="tour-stage" role="tabpanel" aria-live="polite">
+            <div class="tour__screens">
+              <img class="is-active" src="../assets/en/screens/home.webp" alt="Home screen with the season overview" width="540" height="1147" loading="lazy">
+              <img src="../assets/en/screens/track.webp" alt="Tracking screen with the Start skiing button" width="540" height="1147" loading="lazy">
+              <img src="../assets/en/screens/history.webp" alt="Ski history with the list of days" width="540" height="1147" loading="lazy">
+              <img src="../assets/en/screens/detail-dark.webp" alt="Day detail with the route on a map in dark mode" width="540" height="1147" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="privacy">
+      <div class="wrap privacy__inner">
+        <svg class="i privacy__mark" aria-hidden="true"><use href="#i-lock-simple"/></svg>
+        <h2>Where you skied is yours to know.</h2>
+        <p>SkiLog has no server to send your runs to. Your location and history stay on your phone. The app only sends anonymous crash reports, and you can turn those off.</p>
+        <ul class="privacy__list">
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>No account, no sign-up</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>No ads, no analytics</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-export"/></svg>Export to GPX any time</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="section" id="roadmapa">
+      <div class="wrap">
+        <p class="eyebrow">Roadmap</p>
+        <h2 class="section__title">From idea to Google Play</h2>
+
+        <ol class="road">
+          <li class="road__step is-done">
+            <span class="road__state">Done</span>
+            <h3>Idea</h3>
+            <p>A ski tracker that asks for nothing. Switch it on in the morning and it handles the rest of the day.</p>
+          </li>
+          <li class="road__step is-active">
+            <span class="road__state">Right now</span>
+            <h3>Prototype</h3>
+            <p>The app already records a full day. We are tuning run and lift detection, battery life and the new design.</p>
+          </li>
+          <li class="road__step">
+            <span class="road__state">Winter 2026/27</span>
+            <h3>Beta</h3>
+            <p>The first skiers get SkiLog. We test it on different phones, in the cold and with weak signal.</p>
+          </li>
+          <li class="road__step">
+            <span class="road__state">After the beta</span>
+            <h3>Release</h3>
+            <p>Public version on Google Play in English, Czech and Slovak.</p>
+          </li>
+        </ol>
+
+        <div class="later">
+          <h3>Ideas for later</h3>
+          <ul class="ideas">
+            <li><svg class="i" aria-hidden="true"><use href="#i-chart-bar"/></svg><span>Season comparison</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-trophy"/></svg><span>Personal records</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-map-pin-area"/></svg><span>Offline resort maps</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-signpost"/></svg><span>Piste names</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-cloud-arrow-up"/></svg><span>Cloud backup</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-share-network"/></svg><span>Share your day</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-watch"/></svg><span>Wear OS watches</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-device-mobile"/></svg><span>iPhone</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beta -->
+    <section class="section section--tight" id="beta">
+      <div class="wrap">
+        <div class="download">
+          <img src="../assets/icon-192.png" alt="" width="88" height="88">
+          <div class="download__text">
+            <h2>Be among the first to try SkiLog</h2>
+            <p>This winter we are looking for skiers and snowboarders with Android phones to test SkiLog on the slopes. The app comes to Google Play after the beta.</p>
+          </div>
+          <a class="btn" href="https://tally.so/r/RWDK49" data-beta>Join the beta</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <a class="brand" href="#top">
+        <img src="../assets/icon-64.png" alt="" width="26" height="26">
+        <span>SkiLog</span>
+      </a>
+      <p>Ski tracker for Android. Contact: <a href="mailto:info@skilog.cz">info@skilog.cz</a></p>
+      <p class="footer__small">
+        Operator: Bc. Jakub Šicner, company ID (IČO) 29920744, sídliště Vajgar 581, 377 01 Jindřichův Hradec, Czech Republic, sole trader registered in the Czech Trade Register.
+        <a href="privacy.html">Privacy policy</a>
+      </p>
+      <p class="footer__small">
+        Maps in screenshots: © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a> contributors, OpenTopoMap, OpenSnowMap.
+        Icons: <a href="https://phosphoricons.com" rel="noopener">Phosphor</a>. This website uses no cookies and no analytics. © 2026 SkiLog
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Screenshot tour: tabs switch the screen in the phone and advance on their own.
+    // Progress is counted by a 100 ms timer and paused while the tour is off screen,
+    // hovered or keyboard-focused. No auto-advance with prefers-reduced-motion.
+    (function () {
+      var tour = document.querySelector('[data-tour]');
+      if (!tour) return;
+      var tabs = Array.prototype.slice.call(tour.querySelectorAll('.tour__tab'));
+      var screens = tour.querySelectorAll('.tour__screens img');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var STEP = 5000;
+      var current = 0, elapsed = 0, last = null;
+      var visible = false, hovered = false, focused = false;
+
+      if (reduce) tour.classList.add('is-static');
+
+      function setProgress(p) { tabs[current].style.setProperty('--p', p); }
+
+      function show(i, focus) {
+        if (i !== current) {
+          var prev = current, leaving = screens[prev];
+          tabs[prev].classList.remove('is-active');
+          tabs[prev].setAttribute('aria-selected', 'false');
+          tabs[prev].setAttribute('tabindex', '-1');
+          tabs[prev].style.setProperty('--p', 0);
+          leaving.classList.remove('is-active');
+          leaving.classList.add('is-leaving');
+          setTimeout(function () { leaving.classList.remove('is-leaving'); }, 700);
+
+          current = i;
+          tabs[i].classList.add('is-active');
+          tabs[i].setAttribute('aria-selected', 'true');
+          tabs[i].removeAttribute('tabindex');
+          screens[i].classList.add('is-active');
+          if (window.innerWidth < 900) {
+            var strip = tabs[i].parentNode;
+            strip.scrollTo({ left: tabs[i].offsetLeft - (strip.clientWidth - tabs[i].offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+          }
+        }
+        if (focus) tabs[i].focus();
+        elapsed = 0;
+        setProgress(0);
+      }
+
+      function tick() {
+        var now = Date.now();
+        if (last !== null && visible && !hovered && !focused) {
+          elapsed += now - last;
+          if (elapsed >= STEP) show((current + 1) % tabs.length);
+          else setProgress(elapsed / STEP);
+        }
+        last = now;
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () { show(i); });
+        tab.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); show((i + 1) % tabs.length, true); }
+          if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); show((i - 1 + tabs.length) % tabs.length, true); }
+        });
+      });
+      tour.addEventListener('mouseenter', function () { hovered = true; });
+      tour.addEventListener('mouseleave', function () { hovered = false; });
+      tour.addEventListener('focusin', function (e) { focused = e.target.matches(':focus-visible'); });
+      tour.addEventListener('focusout', function () { focused = false; });
+
+      if (reduce) return;
+      setInterval(tick, 100);
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            visible = e.isIntersecting;
+            if (visible) {
+              Array.prototype.forEach.call(screens, function (img) { img.loading = 'eager'; });
+            }
+          });
+        }, { threshold: 0.35 }).observe(tour.querySelector('.tour__stage'));
+      } else {
+        visible = true;
+      }
+    })();
+  </script>
+  <script src="../beta.js" defer></script>
+</body>
+</html>
